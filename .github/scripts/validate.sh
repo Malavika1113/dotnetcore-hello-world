@@ -12,7 +12,7 @@ for env in "${envArray[@]}"; do
 	fi
 done
 
-echo "Error: For given release version: ${releaseVersion}, environment: ${releaseEnv} is invalid. Valid environments choices: "
+echo "Error: For given release version: ${releaseVersion}, environment: ${releaseEnv} is invalid. Valid release version format xx.xx.xx.xx Eg: 22.03.0.1 "
 for env in "${envArray[@]}"; do
 	echo "${env}"
 done
