@@ -2,10 +2,6 @@ name:  CPQ_Apps_Build
 
 on: 
   workflow_dispatch:
-    inputs:
-      REL_Version:
-        type: boolean
-        description: Check this to create Release Version (22.03.0.xxx)
         
 jobs:
 
@@ -21,10 +17,13 @@ jobs:
         - id: versionid
           run: | 
                echo $GITHUB_REF_NAME
-               if [[ $GITHUB_REF_NAME == "master" || $GITHUB_REF_NAME == "develop" || $GITHUB_REF_NAME == "hotfix*" ]];then
+               if [[ $GITHUB_REF_NAME == "master" || $GITHUB_REF_NAME == "develop" || $GITHUB_REF_NAME == hotfix* ]];then
                  echo setting release version!!
                else
                   ReleaseVersion="1.0-SNAPSHOT"
                   echo $ReleaseVersion is the version
                   echo "::set-output name=version::$ReleaseVersion"
                fi
+
+
+
