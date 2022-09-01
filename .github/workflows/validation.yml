@@ -1,0 +1,35 @@
+name: Validation
+on:
+  workflow_dispatch:
+   inputs: 
+       Version:
+          description: 'Release_Version'
+          required: true
+          type: string
+       Environment:
+          type: choice
+          description: 'Environment'
+          options: 
+          - dev
+          - test
+          - prod
+          required: true
+          
+jobs:
+
+  Validation-Check:
+       
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+        - name: Check inputs
+          id: check_input
+          run: |
+            chmod +x .github/scripts/validate.sh
+            bash .github/scripts/validate.sh ${{ github.event.inputs.Version }} ${{ github.event.inputs.Environment }}
+            
+        - name: Next step
+          id: next_step
+          run: echo "hello world"
+          
+     
