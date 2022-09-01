@@ -9,7 +9,9 @@ if [[ "${releaseEnv}" == "pg" || "${releaseEnv}" == "wspg" || "${releaseEnv}" ==
 	exit 0
 fi
 for env in "${envArray[@]}"; do
-	if [[ "${env}" == "${releaseEnv}" && "${releaseVersion}" != "1.0-SNAPSHOT" ]];then
+	echo ${env}
+	echo ${releaseEnv}
+	if [[ "${env}" = "${releaseEnv}" && "${releaseVersion}" != "1.0-SNAPSHOT" ]];then
 		echo "Success: For given release version: ${releaseVersion}, environment: ${releaseEnv} is valid"
 		exit 0
 	fi
