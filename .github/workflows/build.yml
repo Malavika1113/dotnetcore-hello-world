@@ -20,7 +20,8 @@ jobs:
 
         - id: versionid
           run: | 
-               if [[ GITHUB_REF_NAME == "master" ]];then
+               echo $GITHUB_REF_NAME
+               if [[ $GITHUB_REF_NAME == "master" ]];then
                  echo setting release version!!
                else
                   ReleaseVersion="1.0-SNAPSHOT"
