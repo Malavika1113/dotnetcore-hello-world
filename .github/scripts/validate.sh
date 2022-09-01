@@ -4,7 +4,10 @@ releaseVersion=${1}
 releaseEnv=${2}
 
 declare -a envArray=("test" "dev" "prod")
-
+if [[ "${releaseEnv}" == "pg" || "${releaseEnv}" == "wspg" || "${releaseEnv}" == "aspg" ]];then
+	echo "All versions can deploy to PG/WSPG"
+	exit 0
+fi
 for env in "${envArray[@]}"; do
 	if [[ "${env}" == "${releaseEnv}" && "${releaseVersion}" != "1.0-SNAPSHOT" ]];then
 		echo "Success: For given release version: ${releaseVersion}, environment: ${releaseEnv} is valid"
