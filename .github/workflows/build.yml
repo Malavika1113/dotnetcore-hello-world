@@ -21,7 +21,7 @@ jobs:
         - id: versionid
           run: | 
                echo $GITHUB_REF_NAME
-               if [[ $GITHUB_REF_NAME == "master" || $GITHUB_REF_NAME == "develop" || $GITHUB_REF_NAME == "hotfix*" ]];then
+               if [[ $GITHUB_REF_NAME == "master" || $GITHUB_REF_NAME == "develop" || $GITHUB_REF_NAME == hotfix* ]];then
                  echo setting release version!!
                else
                   ReleaseVersion="1.0-SNAPSHOT"
