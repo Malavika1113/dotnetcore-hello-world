@@ -21,6 +21,7 @@ jobs:
           
   STG_Deploy:
    runs-on: ubuntu-latest
+   needs: build
    environment: STG
    steps:
      - name: Deployment
