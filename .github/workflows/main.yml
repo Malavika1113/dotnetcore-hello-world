@@ -5,7 +5,7 @@ on:
 
 jobs:
   
-  build:
+  pre-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +20,12 @@ jobs:
           echo test, and deploy your project.
           
   STG_Deploy:
-   runs-on: ubuntu-latest
-   needs: build
-   environment: STG
-   steps:
-     - name: Deployment
-       run: echo Hello, world Deployment!
+   needs: pre-deploy
+   uses: ./.github/workflows/stgdeploy.yml
+     
+  post-deploy:
+    runs-on: ubuntu-latest
+    needs: STG_Deploy
+    steps:
+     - name: Post Deployment
+       run: echo Hello, world Post Deployment!
