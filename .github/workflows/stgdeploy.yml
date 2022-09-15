@@ -1,0 +1,11 @@
+name: STG_DEPLOY_DS
+on: 
+  workflow_call:
+   
+jobs:
+  Pre-Release:    
+    runs-on: ubuntu-latest
+    environment: STG
+    steps:
+      - name: Deploy to STG env
+        run: echo Happy Deploying !!!
