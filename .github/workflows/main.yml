@@ -21,7 +21,10 @@ jobs:
           
   STG_Deploy:
    needs: pre-deploy
-   uses: ./.github/workflows/stgdeploy.yml
+   runs-on: ubuntu-latest
+   steps:
+    - name: Enable workflow
+      run: gh workflow enable "stgdeploy.yml" 
      
   post-deploy:
     runs-on: ubuntu-latest
