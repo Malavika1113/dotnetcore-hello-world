@@ -22,9 +22,12 @@ jobs:
   STG_Deploy:
    needs: pre-deploy
    runs-on: ubuntu-latest
+   environment: STG
    steps:
     - name: Enable workflow
       run: gh workflow enable "stgdeploy.yml" 
+      env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
   post-deploy:
     runs-on: ubuntu-latest
