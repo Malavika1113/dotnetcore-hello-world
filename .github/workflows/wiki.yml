@@ -1,0 +1,22 @@
+name: Github wiki 
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  Wiki_clone:
+    name: cloneWIKI
+    id: cloneWIKI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout wiki code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{github.repository}}.wiki
+          path: wikicontents
+      - name: Wiki Contents
+        run: |
+          cd wikicontents
+          echo "############"
+          echo "Contents"
+          ls -la
