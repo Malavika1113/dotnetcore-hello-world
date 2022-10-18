@@ -6,7 +6,6 @@ on:
 jobs:
   Wiki_clone:
     name: cloneWIKI
-    id: cloneWIKI
     runs-on: ubuntu-latest
     steps:
       - name: Checkout wiki code
