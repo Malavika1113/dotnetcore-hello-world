@@ -19,3 +19,4 @@ jobs:
           echo "############"
           echo "Contents"
           ls -la
+          cat Home.org
