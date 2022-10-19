@@ -24,3 +24,8 @@ jobs:
           echo "#############################################################################3"
           echo "${{ runner.name }}"
           git branch -a
+          git config user.email "actions@github.com"
+          git config user.name "test"
+          git add .
+          git diff-index --quiet HEAD -- || git commit -m "test push"
+          git push origin master
