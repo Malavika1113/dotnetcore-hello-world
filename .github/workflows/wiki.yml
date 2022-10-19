@@ -18,7 +18,7 @@ jobs:
           cd markdown
           ls -la
           cat Dashboard.org
-          sed -i 's/\bApp1DevVersion[^ ]*/App1DevVersion-1.2.5/' Dashboard.org
+          sed -i 's/\bApp1STGVersion[^ ]*/App1STGVersion-1.2.5/' Dashboard.org
           echo "#############################################################################"
           cat Dashboard.org
           echo "#############################################################################3"
