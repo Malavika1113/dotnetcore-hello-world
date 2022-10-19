@@ -15,5 +15,4 @@ jobs:
           cd dotnetcore-hello-world.wiki
           ls -la
           cat Home.org
-          echo "*Welcome to the wiki!" > Home.org
-          cat Home.org
+          
