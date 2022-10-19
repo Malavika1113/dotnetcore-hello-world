@@ -8,9 +8,14 @@ jobs:
     name: cloneWIKI
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout wiki code
+        uses: actions/checkout@v2
+        with:
+          repository: ${{github.repository}}.wiki
+          path: markdown
       - name: Wiki Contents
         run: |
-          git clone https://github.com/Malavika1113/dotnetcore-hello-world.wiki.git
+          cd markdown
           ls -la
           cd dotnetcore-hello-world.wiki
           ls -la
