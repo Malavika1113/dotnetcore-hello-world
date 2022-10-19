@@ -17,8 +17,6 @@ jobs:
         run: |
           cd markdown
           ls -la
-          cd dotnetcore-hello-world.wiki
-          ls -la
           cat Dashboard.org
           sed -i 's/\bApp1DevVersion[^ ]*/App1DevVersion-1.2.5/' Dashboard.org
           echo "#############################################################################"
