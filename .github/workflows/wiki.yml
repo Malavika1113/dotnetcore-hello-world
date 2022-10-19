@@ -24,6 +24,8 @@ jobs:
 #           echo "#############################################################################3"
 #           echo "${{ runner.name }}"
       - name: Set current date as env variable
-        run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')"
+        run: |
+          datee=$(date +'%d-%m-%Y  %H:%M:%S')
+          echo $datee
       - name: Echo current date
         run: echo $NOW
