@@ -15,4 +15,6 @@ jobs:
           cd dotnetcore-hello-world.wiki
           ls -la
           cat Dashboard.org
-          
+          sed -i '/s/^App1Dev.*$/App1Dev\t*version-1.2.4*/' Dashboard.org
+          echo "############################"
+          cat Dashboard.org
