@@ -16,5 +16,8 @@ jobs:
           ls -la
           cat Dashboard.org
           sed -i 's/\bApp1DevVersion[^ ]*/App1DevVersion-1.2.5/' Dashboard.org
-          echo "############################"
+          echo "#############################################################################"
           cat Dashboard.org
+          echo "#############################################################################3"
+          git config user.name
+          git config user.email
