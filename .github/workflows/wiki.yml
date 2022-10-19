@@ -13,19 +13,17 @@ jobs:
         with:
           repository: ${{github.repository}}.wiki
           path: markdown
-      - name: Wiki Contents
-        run: |
-          cd markdown
-          ls -la
-          cat Dashboard.org
-          sed -i 's/\bApp3STGVersion[^ ]*/App3STGVersion-1.2.5/' Dashboard.org
-          echo "#############################################################################"
-          cat Dashboard.org
-          echo "#############################################################################3"
-          echo "${{ runner.name }}"
-          git branch -a
-          git config user.email "actions@github.com"
-          git config user.name "test"
-          git add .
-          git diff-index --quiet HEAD -- || git commit -m "test push"
-          git push origin master
+#       - name: Wiki Contents
+#         run: |
+#           cd markdown
+#           ls -la
+#           cat Dashboard.org
+#           sed -i 's/\bApp3STGVersion[^ ]*/App3STGVersion-1.2.5/' Dashboard.org
+#           echo "#############################################################################"
+#           cat Dashboard.org
+#           echo "#############################################################################3"
+#           echo "${{ runner.name }}"
+      - name: Set current date as env variable
+        run: echo "NOW::$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
+      - name: Echo current date
+        run: echo $NOW
