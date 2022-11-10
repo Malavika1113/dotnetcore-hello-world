@@ -1,0 +1,15 @@
+name: PR Check
+on:
+  pull_request:
+    types: [opened]
+    branches:
+      - master
+      
+jobs:
+  viewpr:
+    runs-on: ubuntu-latest
+    name: view pr
+    steps:
+      - name: view contents
+        run: |
+          gh pr view
