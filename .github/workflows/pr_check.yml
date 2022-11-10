@@ -1,20 +1,21 @@
 name: PR Check
 on:
-  pull_request:
-    types: [opened]
+  issue_comment:
+    types: [created,edited]
     branches:
       - master
       
 jobs:
   viewpr:
     runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request }}
     name: view pr
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: contents
         run: |
-          echo ${{github.event.comment.body}}
+          echo ${{ github.event.comment.body }}
 #     steps:
 #       - name: view contents
 #         run: |
