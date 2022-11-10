@@ -12,7 +12,11 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: view contents
+      - name: contents
         run: |
-          gh pr view
+          echo ${{github.event.comment.body}}
+#     steps:
+#       - name: view contents
+#         run: |
+#           gh pr view
     
