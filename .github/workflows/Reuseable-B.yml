@@ -1,0 +1,15 @@
+name: child workflow
+on:
+  workflow_call:
+    inputs:
+      Release_Version: 
+        required: true
+        type: string
+        
+ jobs:
+  the_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print inputs
+        run: |
+          echo "Release_Versin: ${{ inputs.Release_Version }}"
