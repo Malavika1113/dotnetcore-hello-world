@@ -18,4 +18,4 @@ jobs:
       - name: Print inputs
         run: |
           #echo "Release_Versin: ${{ inputs.Release_Version }}"
-          echo "Release_Versin: ${{ inputs.Release_Version }}"
+          echo "Release_Versin: ${{ github.event.inputs.Release_Version }}"
