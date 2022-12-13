@@ -17,5 +17,7 @@ jobs:
     steps:
       - name: Print inputs
         run: |
+          workflowAuthor="${{ github.actor }}"
+          echo "$workflowAuthor is author"
           #echo "Release_Versin: ${{ inputs.Release_Version }}"
           echo "Release_Versin: ${{ inputs.Release_Version }}"
