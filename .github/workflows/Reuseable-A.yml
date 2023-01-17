@@ -2,8 +2,12 @@ name: Parent workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      Release_Version:
+        required: true
+        type: string
   
-run-name: Deploy to DEV
+run-name: ${{ github.run_number }}- Deploy ${{ inputs.Release_Version }} to DEV
 
 jobs:
   set_run_name:
