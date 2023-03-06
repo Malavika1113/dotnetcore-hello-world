@@ -1,0 +1,17 @@
+name: delete package
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Delete
+      run: |
+        dotnet nuget delete Helloworld 22.2.130 --api-key ${{ secrets.DELETE }} --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --non-interactive
+       
+     
