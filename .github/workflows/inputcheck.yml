@@ -15,7 +15,7 @@ jobs:
           declare -a arr=("MY_INPUT_1" "MY_INPUT_2" "MY_INPUT_3")
           for i in "${arr[@]}"
           do
-             output=(echo '${{ inputs.PARAMETERS }}' | jq -r '.'$i'')
+             output=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.'$i'')
              echo $output is result
           done
           
