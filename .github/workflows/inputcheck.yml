@@ -16,10 +16,8 @@ jobs:
       - name: Setup inputs from json
         id: setup-inputs
         run: |
-            echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}" >> "$GITHUB_OUTPUT"
+            echo "'${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}"" >> $GITHUB_OUTPUT
             echo "------------------------"
-            echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}"
-            echo "___________________________________"
             echo ${{ needs.setup-inputs.outputs.MY_INPUT1 }}
 #       - name: Use output
 #         run: | 
