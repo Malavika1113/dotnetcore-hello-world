@@ -16,7 +16,7 @@ jobs:
           for i in "${arr[@]}"
           do
              echo "$i"
-             echo '${{ inputs.PARAMETERS }}' | jq -r '.$i'
+             echo '${{ inputs.PARAMETERS }}' | jq -r '.'$i''
           done
           
      
