@@ -13,10 +13,10 @@ jobs:
 #       MY_INPUT_1: ${{ steps.setup-inputs.outputs.MY_INPUT_1 }}
 #       MY_INPUT_2: ${{ steps.setup-inputs.outputs.MY_INPUT_2 }}
     steps:
-      - name: Setup inputs from json
-        id: setup-inputs
-        run: |
-            echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[]
+#       - name: Setup inputs from json
+#         id: setup-inputs
+#         run: |
+#             echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[]
 
       - name: step 2
         run: echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"'
