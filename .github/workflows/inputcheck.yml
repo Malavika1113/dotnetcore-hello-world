@@ -10,8 +10,8 @@ jobs:
     name: "My job"
     runs-on: ubuntu-latest
 #     outputs:
-#       MY_INPUT1: ${{ steps.setup-inputs.outputs.MY_INPUT1 }}
-#       MY_INPUT2: ${{ steps.setup-inputs.outputs.MY_INPUT2 }}
+#       MY_INPUT_1: ${{ steps.setup-inputs.outputs.MY_INPUT_1 }}
+#       MY_INPUT_2: ${{ steps.setup-inputs.outputs.MY_INPUT_2 }}
     steps:
       - name: Setup inputs from json
         id: setup-inputs
@@ -19,8 +19,8 @@ jobs:
             echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}" >> $GITHUB_OUTPUT
             echo "------------------------"
       - name: step 2
-        run: echo ${{ needs.setup-inputs.outputs.MY_INPUT1 }}
+        run: echo ${{ needs.setup-inputs.outputs.MY_INPUT_1 }}
 #       - name: Use output
 #         run: | 
-#             echo ${{ needs.setup-inputs.outputs.MY_INPUT1 }}
-#             echo ${{ needs.setup-inputs.outputs.MY_INPUT2 }}
+#             echo ${{ needs.setup-inputs.outputs.MY_INPUT_1 }}
+#             echo ${{ needs.setup-inputs.outputs.MY_INPUT_2 }}
