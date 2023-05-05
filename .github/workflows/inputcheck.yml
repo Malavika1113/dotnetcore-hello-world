@@ -10,7 +10,7 @@ jobs:
     name: "My job"
     runs-on: ubuntu-latest
     steps:
-      - name: step 2
+      - name: step 1
         run: |
           declare -a arr=("MY_INPUT_1" "MY_INPUT_2" "MY_INPUT_3")
           for i in "${arr[@]}"
@@ -18,6 +18,20 @@ jobs:
              output=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.'$i'')
              echo $output is result
           done
+          
+      - name: step 2
+        run: |
+          source=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.source')
+          target=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.target')
+          model=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.model')
+          datatype=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.datatype')
+          pricelist=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.pricelist')
+          backdate=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.backdate')
+          prodcate=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.prodcate')
+          modelrange=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.modelrange')
+          backdate=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.backdate')
+          countryfiles=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.countryfiles')
+          copyscript=$(echo '${{ inputs.PARAMETERS }}' | jq -r '.copyscript')
           
      
 
