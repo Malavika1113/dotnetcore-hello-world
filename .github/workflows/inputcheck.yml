@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: step 2
-        run: echo "${{ inputs.PARAMETERS }}" | jq -r '.MY_INPUT_1'
+        run: echo '${{ inputs.PARAMETERS }}' | jq -r '.MY_INPUT_1'
         
      
 
