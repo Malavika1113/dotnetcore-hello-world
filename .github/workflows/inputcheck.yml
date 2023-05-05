@@ -18,7 +18,9 @@ jobs:
         run: |
             echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}" >> "$GITHUB_OUTPUT"
             echo "------------------------"
-            echo $MY_INPUT1
+            echo '${{ inputs.PARAMETERS }}' | jq -r 'to_entries[] | "\(.key)=\(.value)"' | xargs -I '{}' echo "{}"
+            echo "___________________________________"
+            cho ${{ needs.setup-inputs.outputs.MY_INPUT1 }}
 #       - name: Use output
 #         run: | 
 #             echo ${{ needs.setup-inputs.outputs.MY_INPUT1 }}
