@@ -26,7 +26,13 @@ jobs:
       run: |
             echo "Environment: ${{ inputs.environment }}" >> $GITHUB_STEP_SUMMARY
             echo "Version: ${{ inputs.version }}" >> $GITHUB_STEP_SUMMARY
-  
+    - run: |
+         gh api \
+         -H "Accept: application/vnd.github+json" \
+         -H "X-GitHub-Api-Version: 2022-11-28" \
+         /repos/Malavika1113/dotnetcore-hello-world/actions/runs/6322882947/job/17169326797/summary_raw
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           
      
 
