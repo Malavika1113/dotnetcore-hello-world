@@ -13,6 +13,6 @@ jobs:
     name: set run name
     steps:
       - name: curl
-        run: curl -I https://www.google.com/
+        run: curl -v https://www.google.com/
         
 
