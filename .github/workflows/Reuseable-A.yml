@@ -13,6 +13,6 @@ jobs:
     name: set run name
     steps:
       - name: curl
-        run: curl -o - -I https://www.google.com/
+        run: curl -o - -I https://www.google.com/ | grep "HTTP/2"
         
 
