@@ -6,32 +6,13 @@ on:
       Release_Version:
         required: true
         type: string
-  
-run-name: ${{ github.run_number }}- Deploy ${{ inputs.Release_Version }} to DEV
 
 jobs:
   set_run_name:
     runs-on: ubuntu-latest
     name: set run name
     steps:
-      - name: set name
-        run: echo "hi"
+      - name: curl
+        run: curl https://www.google.com/
         
 
-#   set_variable:
-#     name: set_variable
-#     runs-on: ubuntu-latest
-#     outputs: 
-#       rel_ver: ${{ steps.set_variable.outputs.rel_ver }}
-#     steps:
-#       - name: set_variable
-#         id: set_variable
-#         run: |
-#           rel_version="22.02"
-#           echo "rel_ver=$rel_version" >> $GITHUB_OUTPUT
-#           echo $rel_ver
-#   call-child:
-#     needs: set_variable
-#     uses: ./.github/workflows/Reuseable-B.yml
-#     with:
-#       Release_Version: "${{needs.set_variable.outputs.rel_ver}}" 
