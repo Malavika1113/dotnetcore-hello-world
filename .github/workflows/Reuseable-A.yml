@@ -15,7 +15,7 @@ jobs:
       - name: curl
         run: |
           Health_Check_response="HTTP/2 200"
-          if [[ ( "$Health_Check_response" === "HTTP/2 200" ) ]];then
+          if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
               echo "Application health is OK"
           else
               echo "Retrying.."
