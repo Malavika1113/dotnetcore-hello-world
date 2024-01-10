@@ -28,13 +28,14 @@ jobs:
     steps:
       - name: curl
         run: |
-          MAX_RETRIES=2
+          MAX_RETRIES=1
           RETRIES=0
           
           while [ $RETRIES -lt $MAX_RETRIES ];do
             URL="https://www.google.com/"
-            Health_Check_response=$(curl -o - -I -s "$URL" | grep "HTTP/2")
-            echo Health_Check_response1=$Health_Check_response
+            Health_Check_Output=$(curl -o - -I -s "$URL")
+            Health_Check_response=$(echo $Health_Check_Output | grep "HTTP/2")
+            echo Health_Check_response=$Health_Check_response
             if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
                 echo "Application health is OK"
                 break
