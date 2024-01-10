@@ -34,17 +34,13 @@ jobs:
           while [ $RETRIES -lt $MAX_RETRIES ];do
           
             Health_Check_response=$(curl -o - -I -s https://www.google.com/ | grep "HTTP/2")
-            if [ $? -eq 0 ];then
-                echo Health_Check_response1=$Health_Check_response
-                if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
-                    echo "Application health is OK"
-                    break
-                else
-                    echo Health_Check_response2=$Health_Check_response
-                    echo "Retrying.."
-                fi
+            echo Health_Check_response1=$Health_Check_response
+            if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
+                echo "Application health is OK"
+                break
             else
-              echo "Error while checking application health. Retrying.."
+                echo Health_Check_response2=$Health_Check_response
+                echo "Retrying.."
             fi
             RETRIES=$((RETRIES+1))
           done
