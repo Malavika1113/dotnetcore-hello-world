@@ -22,7 +22,7 @@ jobs:
             Health_Check_response=$(curl -o - -I -s https://www.google.com/ | grep "HTTP/2")
             if [ $? -eq 0 ];then
                 echo Health_Check_response = $Health_Check_response
-                if [[ ( $Health_Check_response == "HTTP/2 200" ) ]];then
+                if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
                     echo "Application health is OK"
                     break
                 else
