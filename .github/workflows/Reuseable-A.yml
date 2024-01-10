@@ -34,8 +34,9 @@ jobs:
           while [ $RETRIES -lt $MAX_RETRIES ];do
 
             Health_Check_Output=$(curl -o - -I -s https://www.google.com/ | grep "HTTP/2")
+
+            trimmed_string=$(echo "=$(sed -e 's/[[:space:]]*$//'<<<"${Health_Check_Output}")=")
             
-            trimmed_string=$(echo $Health_Check_Output | tr -d ' ')
             Health_Check_response="'$trimmed_string'"
             
             echo Health_Check_response=$Health_Check_response
