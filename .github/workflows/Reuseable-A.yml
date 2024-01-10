@@ -32,9 +32,9 @@ jobs:
           RETRIES=0
           
           while [ $RETRIES -lt $MAX_RETRIES ];do
-            URL="https://www.google.com/"
-            Health_Check_Output=$(curl -o - -I -s "$URL")
-            Health_Check_response=$(echo $Health_Check_Output | grep "HTTP/2")
+
+            Health_Check_Output=$(curl -o - -I -s https://www.google.com/ | grep "HTTP/2")
+            Health_Check_response="$Health_Check_Output"
             echo Health_Check_response=$Health_Check_response
             if [[ ( "$Health_Check_response" == "HTTP/2 200" ) ]];then
                 echo "Application health is OK"
