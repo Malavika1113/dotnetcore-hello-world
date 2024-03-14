@@ -1,0 +1,14 @@
+name: Create PR
+on:
+  workflow_dispatch:
+jobs:
+  new-pr:
+    runs-on: ubuntu-latest
+    name: create new pr
+    steps:
+      - name: new pr
+        run: |
+          echo "Started"
+          gh pr create --base master --head test-pr --title "NEW PR" --body "Everything works again"
+          echo "Completed"
+  
