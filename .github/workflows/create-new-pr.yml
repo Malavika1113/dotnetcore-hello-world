@@ -5,6 +5,8 @@ jobs:
   new-pr:
     runs-on: ubuntu-latest
     name: create new pr
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: new pr
         run: |
